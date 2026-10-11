@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Accessibility Service Configuration
+  ─────────────────────────────────────
+  This file is referenced by AndroidManifest.xml in the <meta-data> tag
+  inside the AimService <service> element.
+
+  FLAGS EXPLAINED:
+    flagRetrieveInteractiveWindows
+      Required if you ever need to inspect window hierarchy (debugging).
+      Not strictly needed for the color-scan approach but harmless.
+
+    flagReportViewIds
+      Enables getViewIdResourceName() — useful for debugging which
+      views are under the tap coordinate.
+
+    flagDefault
+      Standard accessibility flags (touch exploration, etc.).
+
+  NOTE: We do NOT set flagPerformGestures because that requires Google
+  whitelisting.  Our dispatchGesture() calls in Java work without it.
+-->
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagDefault|flagRetrieveInteractiveWindows|flagReportViewIds"
+    android:canPerformGestures="true"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/accessibility_service_description"
+    android:notificationTimeout="100"
+    android:settingsActivity=".SettingsActivity" />

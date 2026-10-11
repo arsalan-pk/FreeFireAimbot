@@ -1,0 +1,39 @@
+{
+  "project": "FreeFireAimbot",
+  "description": "High-performance Android aimbot overlay using C++ NDK for color-based head detection + AccessibilityService for tap simulation",
+  "tech_stack": {
+    "language": "Java + C++17",
+    "ndk": "r30",
+    "cmake": "3.31",
+    "target_api": "33+",
+    "build_system": "Gradle AGP 8+"
+  },
+  "architecture": {
+    "java_layer": "AimService (AccessibilityService) handles UI lifecycle, tap dispatch, and screen capture",
+    "cpp_layer": "aimbot.cpp handles pixel scanning via AndroidBitmap_lockPixels, color threshold detection in ROI",
+    "bridge": "JNI: setServiceObject, detectAndTap, isServiceReady"
+  },
+  "key_files": {
+    "jni/CMakeLists.txt": "Links android, log, jnigraphics; C++17; -O3 optimisation",
+    "jni/aimbot.cpp": "detect_and_tap() with ROI scan, ARGB_565/8888 support, JNI tap callback",
+    "app/src/main/java/com/example/aimbot/AimService.java": "AccessibilityService lifecycle, aim loop, dispatchGesture tap",
+    "app/src/main/AndroidManifest.xml": "SYSTEM_ALERT_WINDOW, FOREGROUND_SERVICE_SPECIAL_USE, POST_NOTIFICATIONS",
+    "app/build.gradle": "externalNativeBuild CMake, abiFilters arm64-v8a+x86_64, Java 17"
+  },
+  "tuning_parameters": {
+    "head_color": "R=230, G=120, B=30 (orange-red Free Fire enemy head)",
+    "tolerance": "50 (adjust 40-70 based on lighting conditions)",
+    "roi": "x=360, y=540, w=80, h=80 (centre crosshair area — adjust for your screen)"
+  },
+  "permissions_required": [
+    "SYSTEM_ALERT_WINDOW (runtime: Settings.ACTION_MANAGE_OVERLAY_PERMISSION)",
+    "POST_NOTIFICATIONS (Android 13+)",
+    "FOREGROUND_SERVICE_SPECIAL_USE (Android 14+)"
+  ],
+  "next_steps": [
+    "Implement MediaProjection screen capture in AimService.captureScreen()",
+    "Add floating overlay button for on-screen start/stop control",
+    "Create SettingsActivity for in-app sensitivity/ROI tuning",
+    "Test on physical device (emulator has different color rendering)"
+  ]
+}

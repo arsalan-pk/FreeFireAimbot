@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Android NDK (arm64)",
+            "compileCommands": "${workspaceFolder}/app/.cxx/tools/debug/arm64-v8a/compile_commands.json",
+            "compilerPath": "C:/Android/Sdk/ndk/30.0.16248370/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe",
+            "compilerArgs": ["--target=aarch64-linux-android24"],
+            "includePath": ["${workspaceFolder}/app/src/main/cpp/**"],
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "clang-arm64"
+        }
+    ],
+    "version": 4
+}

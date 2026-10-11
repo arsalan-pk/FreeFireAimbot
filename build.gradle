@@ -1,0 +1,11 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    // AGP 8.5.1
+    id 'com.android.application' version '8.5.1' apply false
+    // Kotlin Plugin 1.9.24 (Compatible with AGP 8.5)
+    id 'org.jetbrains.kotlin.android' version '1.9.24' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

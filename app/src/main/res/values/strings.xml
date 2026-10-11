@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Free Fire Aimbot</string>
+    <string name="accessibility_service_label">FF Aimbot Service</string>
+    <string name="accessibility_service_description">
+        Provides aimbot functionality by scanning the screen for enemy head colors
+        and simulating taps via the Accessibility API. No root required.
+    </string>
+</resources>

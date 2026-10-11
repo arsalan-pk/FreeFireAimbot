@@ -1,0 +1,24 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_crosshair
+id aim_switch
+id btn_start_stop
+id crosshair
+id status_text
+layout activity_main
+layout overlay_layout
+mipmap ic_launcher
+mipmap ic_launcher_background
+mipmap ic_launcher_foreground
+mipmap ic_launcher_monochrome
+string accessibility_service_description
+string accessibility_service_label
+string app_name
+style Theme.Aimbot
+xml accessibility_service_config
